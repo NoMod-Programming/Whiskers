@@ -1,1 +1,11 @@
-!SVGCompositeMorph methodsFor: 'as yet unclassified' stamp: 'EMP 7/15/2017 20:37'!drawSubmorphsOn: aCanvas 	"Display the receiver."		(self composedStyle at: 'display' ifAbsent: [false])		ifFalse: [^self].	aCanvas asBalloonCanvas preserveStateDuring:[:balloonCanvas|		balloonCanvas			aaLevel: 3.		super drawSubmorphsOn: balloonCanvas]! !
+
+!SVGCompositeMorph methodsFor: 'as yet unclassified' stamp: 'EMP 7/15/2017 20:37'!
+drawSubmorphsOn: aCanvas 
+	"Display the receiver."
+	
+	(self composedStyle at: 'display' ifAbsent: [false])
+		ifFalse: [^self].
+	aCanvas asBalloonCanvas preserveStateDuring:[:balloonCanvas|
+		balloonCanvas
+			aaLevel: 3.
+		super drawSubmorphsOn: balloonCanvas]! !
