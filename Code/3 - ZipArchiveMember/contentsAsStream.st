@@ -1,0 +1,1 @@
+!ZipArchiveMember methodsFor: 'reading' stamp: 'EMP 7/15/2017 23:51'!contentsAsStream	"Answer my contents as a string - assuming a Latin1 encoding."	| s |	s := (ByteArray new: self uncompressedSize) writeStream.	self extractTo: s.	^s! !
