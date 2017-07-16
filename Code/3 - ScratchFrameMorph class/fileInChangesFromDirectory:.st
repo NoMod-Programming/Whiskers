@@ -1,5 +1,5 @@
 
-!ScratchFrameMorph class methodsFor: 'versioning' stamp: 'EMP 7/15/2017 23:04'!
+!ScratchFrameMorph class methodsFor: 'versioning' stamp: 'EMP 7/16/2017 10:36'!
 fileInChangesFromDirectory: aFileDirectory
 	| foldersInOrder |
 	(aFileDirectory fileExists: 'preamble.st') ifTrue: [
@@ -15,5 +15,5 @@ fileInChangesFromDirectory: aFileDirectory
 		]
 	].
 		(aFileDirectory fileExists: 'postscript.st') ifTrue: [
-		FileStream fileIn: (aFileDirectory fullNameFor: 'preamble.st')
+		FileStream fileIn: (aFileDirectory fullNameFor: 'postscript.st')
 	].! !

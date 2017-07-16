@@ -1,4 +1,4 @@
-
+﻿
 !ScratchFrameMorph methodsFor: 'menu/button actions' stamp: 'EMP 7/14/2017 21:51'!
 aboutScratch
 	| dialog |

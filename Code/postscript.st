@@ -1,5 +1,13 @@
 DockingBarItemMorph removeSelector: #colorToUse!
+ImageMedia removeSelector: #compositeForm!
+ScratchMedia subclass: #ImageMedia
+	instanceVariableNames: 'form rotationCenter textBox jpegBytes compositeForm savedForm svgForm'
+	classVariableNames: 'JPEGPlaceholderForm'
+	poolDictionaries: ''
+	category: 'Scratch-Objects'!
+Json initialize!
 LibraryItemMorph removeSelector: #drawSubmorphsOn:!
+SampledSound removeSelector: #originalSamplingRate:!
 ScratchCategorySelector removeSelector: #mouseEnterDragging:!
 ScratchCategorySelector removeSelector: #mouseLeaveDragging:!
 ScratchCategorySelector removeSelector: #textColor!
