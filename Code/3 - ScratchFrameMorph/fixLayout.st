@@ -1,6 +1,7 @@
 
-!ScratchFrameMorph methodsFor: 'layout' stamp: 'EMP 7/14/2017 14:45'!
+!ScratchFrameMorph methodsFor: 'layout' stamp: 'EMP 7/17/2017 22:20'!
 fixLayout
+	workPaneWrapper ifNil: [^ self]. "Yay bugs!!"
 
 	topPane
 		position: self topLeft;

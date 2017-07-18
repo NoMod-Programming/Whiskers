@@ -1,3 +1,4 @@
+ASN1Module initialize!
 BackdropEventHatMorph removeSelector: #isKeyEventHatMorph!
 BackdropEventHatMorph removeSelector: #respondsToKeyEvent:!
 CommandBlockMorph removeSelector: #addCommandIcons!
@@ -7,6 +8,8 @@ BlockMorph subclass: #CommandBlockMorph
 	poolDictionaries: ''
 	category: 'Scratch-Blocks'!
 CustomReporterMorph removeSelector: #commandSpec!
+DESBitPermutation initialize!
+DESNonPrimitive initialize!
 DockingBarItemMorph removeSelector: #colorToUse!
 ImageMedia removeSelector: #compositeForm!
 ScratchMedia subclass: #ImageMedia
@@ -16,6 +19,14 @@ ScratchMedia subclass: #ImageMedia
 	category: 'Scratch-Objects'!
 Json initialize!
 LibraryItemMorph removeSelector: #drawSubmorphsOn:!
+MD2 initialize!
+MD5NonPrimitive initialize!
+Pkcs12PFX initialize!
+RSAPrivateKey initialize!
+RSAPublicKey initialize!
+RandomGenerator initialize!
+Rijndael initialize!
+SHA1 initialize!
 SampledSound removeSelector: #originalSamplingRate:!
 ScratchBackdropChangeEvent removeSelector: #keyEvent:!
 ScratchCategorySelector removeSelector: #mouseEnterDragging:!
@@ -41,6 +52,7 @@ Morph subclass: #ScratchLibraryMorph
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
 ScratchLibraryMorph initialize!
+ScratchListMorph removeSelector: #asJSON!
 Morph subclass: #ScratchPresenterMorph
 	instanceVariableNames: 'frame stage stageWrapper buttons flagButton offscreenWorld mouseFocus mouseDownPoint dragOffset clickWasHandled mouseMoved lastStepTime'
 	classVariableNames: 'TopStyle'
@@ -107,6 +119,8 @@ ScratchViewerMorph initialize!
 ScratchWorkpaneMorph removeSelector: #drawSubmorphsOn:!
 ScriptableScratchMorph removeSelector: #getUsername!
 ScriptableScratchMorph class removeSelector: #blockColorFor:!
+SecureRandom initialize!
+SmalltalkImageInstanceID initialize!
 ArgMorph subclass: #SpriteArgMorph
 	instanceVariableNames: 'menuIconMorph morph type'
 	classVariableNames: ''
@@ -116,3 +130,5 @@ WhenClonedEventHatMorph removeSelector: #isMouseClickEventHatMorph!
 WhenClonedEventHatMorph removeSelector: #receiverName!
 WhenGreaterThanHatBlockMorph removeSelector: #eventNameMatches:!
 WhenGreaterThanHatBlockMorph removeSelector: #triggered!
+X509Certificate initialize!
+X509CertificateExtension initialize!

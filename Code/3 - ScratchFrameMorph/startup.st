@@ -1,5 +1,5 @@
 
-!ScratchFrameMorph methodsFor: 'startup' stamp: 'EMP 7/14/2017 15:04'!
+!ScratchFrameMorph methodsFor: 'startup' stamp: 'EMP 7/17/2017 23:17'!
 startup
 
 	| startupFileNames fileName arg |
@@ -35,7 +35,7 @@ startup
 
 	fileName := startupFileNames
 		detect: [:fn |
-			(fn asLowercase endsWith: '.sb') or: [fn asLowercase endsWith: '.scratch']]
+			(fn asLowercase endsWith: '.sb') or: [(fn asLowercase endsWith: '.scratch') or: [fn asLowercase endsWith: '.sb2']]]
 		ifNone: [nil].
 	fileName ifNotNil: [
 		StartupPresentationMode ifTrue: [Display fillColor: Color black].

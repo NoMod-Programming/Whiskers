@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/13/2017 19:01'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 21:44'!
 viewerPageForMotion
 	"Answer a morph containing mtion blocks for the given category for use in the given ScratchViewer."
 
@@ -42,7 +42,7 @@ viewerPageForMotion
 		bin addMorph: ((ImageMorph new image: (ScratchFrameMorph skinAt: #connector)) position: x@y).
 		y := y + 20].
 
-	(self blocksFor: 'motor') do: [:blockOrSym |
+	(self blocksFor: 'Motor') do: [:blockOrSym |
 		(blockOrSym = #-) | (blockOrSym = #~)
 			ifTrue: [
 				(blockOrSym = #-) ifTrue: [y := y + 15].  "insert a full space"
