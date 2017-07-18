@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'object i/o' stamp: 'EMP 7/16/2017 15:33'!
+!ScriptableScratchMorph methodsFor: 'object i/o' stamp: 'EMP 7/17/2017 16:08'!
 readJSON: aDictionary images: images sounds: sounds
 	self objName: (aDictionary at: 'objName').
 	media := OrderedCollection new.

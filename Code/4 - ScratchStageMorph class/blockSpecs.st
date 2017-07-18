@@ -1,9 +1,25 @@
 
-!ScratchStageMorph class methodsFor: 'block specs' stamp: 'EMP 7/13/2017 18:43'!
+!ScratchStageMorph class methodsFor: 'block specs' stamp: 'EMP 7/16/2017 19:26'!
 blockSpecs
 
 	| blocks |
-	blocks := #(
+	blocks _ #(
+			'Control'
+			('wait %n secs'					t	wait:elapsed:from: 1)
+			-
+			('forever'						c	doForever)
+			('repeat %n'						c	doRepeat 10)
+			-
+			('if %b'							c	doIf)
+			('if %b'							c	doIfElse)
+			('wait until %b'					s	doWaitUntil)
+			('repeat until %b'				c	doUntil)
+			('while %b'						c	doWhile)
+			('all at once'					c	warpSpeed)
+			-
+			('stop %m.stop'	s	stopScripts 'all')
+			-
+			('create clone of %m.spriteOnly'			-	createCloneOf)
 		'Sensing'
 			('ask %s and wait'			s	doAsk 'What''s your name?')
 			('answer'					r	answer)
@@ -12,31 +28,26 @@ blockSpecs
 			('mouse y'					r	mouseY)
 			('mouse down?'				b	mousePressed)
 			-
-			('key %k pressed?'			b	keyPressed: 'space')
+			('key %m.key pressed?'			b	keyPressed: 'space')
 			-
-			('reset timer'				-	timerReset)
 			('timer'						r	timer)
+			('reset timer'				-	timerReset)
 			-
-			('%a of %m'					r	getAttribute:of:)
+			('%m.attribute of %m.spriteOrStage'					r	getAttribute:of:)
 			-
 			('loudness'					r	soundLevel)
 			('loud?'						b	isLoud)
-			~
-			('%H sensor value'			r	sensor: 'slider')
-			('sensor %h?'				b	sensorPressed: 'button pressed')
 		'Looks'
-			('switch to background %l'	-	showBackground: 'background1')
-			('next background'			-	nextBackground)
-			('background #'				r	backgroundIndex)
+			('switch backdrop to %m.backdrop'	-	showBackground: 'background1')
+			('switch backdrop to %m.backdrop and wait' s startSceneAndWait 'background1')
+			('next backdrop'				-	nextBackground)
+			('backdrop name'			r	backdropName)
+			('backdrop #'				r	backgroundIndex)
 			-
-			('change %g effect by %n'	-	changeGraphicEffect:by: 'color' 25)
-			('set %g effect to %n'		-	setGraphicEffect:to: 'color' 0)
+			('change %m.effect effect by %n'	-	changeGraphicEffect:by: 'color' 25)
+			('set %m.effect effect to %n'		-	setGraphicEffect:to: 'color' 0)
 			('clear graphic effects'		-	filterReset)
-			-
-"xxx			('place sprites for scene %x'	-	showScene:) "
 		'Pen'
 			('clear'						-	clearPenTrails)
 	).
-
-	^ blocks, super blockSpecs
-! !
+	^ blocks, super blockSpecs! !

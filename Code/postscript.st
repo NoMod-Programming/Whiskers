@@ -1,3 +1,12 @@
+BackdropEventHatMorph removeSelector: #isKeyEventHatMorph!
+BackdropEventHatMorph removeSelector: #respondsToKeyEvent:!
+CommandBlockMorph removeSelector: #addCommandIcons!
+BlockMorph subclass: #CommandBlockMorph
+	instanceVariableNames: 'commandSpec argPermutation argMorphs titleMorph receiver selector isReporter isTimed wantsName wantsPossession numberArgFlags stopFrame'
+	classVariableNames: 'CBlockBottomBarForm CBlockBottomBarWithTabsForm CBlockTopBarForms'
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+CustomReporterMorph removeSelector: #commandSpec!
 DockingBarItemMorph removeSelector: #colorToUse!
 ImageMedia removeSelector: #compositeForm!
 ScratchMedia subclass: #ImageMedia
@@ -8,6 +17,7 @@ ScratchMedia subclass: #ImageMedia
 Json initialize!
 LibraryItemMorph removeSelector: #drawSubmorphsOn:!
 SampledSound removeSelector: #originalSamplingRate:!
+ScratchBackdropChangeEvent removeSelector: #keyEvent:!
 ScratchCategorySelector removeSelector: #mouseEnterDragging:!
 ScratchCategorySelector removeSelector: #mouseLeaveDragging:!
 ScratchCategorySelector removeSelector: #textColor!
@@ -19,7 +29,7 @@ ScratchFrameMorph removeSelector: #hidePalette:!
 ScratchFrameMorph removeSelector: #logoMorphOffset!
 ScratchFrameMorph removeSelector: #updateViewModeButtons!
 Morph subclass: #ScratchFrameMorph
-	instanceVariableNames: 'topPane viewerPane scriptsPane stageFrame workPane titlePane libraryPane menuPanel stageButtonsPanel readoutPane logoMorph projectTitleMorph flagButton fillScreenFlag paintingInProgress projectDirectory projectName projectInfo author loginName loginPassword watcherPositions shuffledCostumeNames justSaved viewMode lastViewMode viewModeButtonsPanel toolbarPanel lastWeDoPoll workPaneWrapper'
+	instanceVariableNames: 'topPane viewerPane scriptsPane stageFrame workPane titlePane libraryPane menuPanel stageButtonsPanel readoutPane logoMorph projectTitleMorph flagButton fillScreenFlag paintingInProgress projectDirectory projectName projectInfo author loginName loginPassword watcherPositions shuffledCostumeNames justSaved viewMode lastViewMode viewModeButtonsPanel toolbarPanel lastWeDoPoll workPaneWrapper stopButton'
 	classVariableNames: 'AllowRemoteConnectionDialog AllowSharing DefaultNotes DefaultSprite FontDefaults Fonts FontsXO IsXO ScratchClipboard ScratchServers ScratchSkin ScratchSkinXO ShareServer ShareServerPath StartupPresentationMode SupportServer SupportServerPath TakeOverScreen UseErrorCatcher UserFontScale Version VersionDate VisibleDrives WorkpaneExtent'
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
@@ -37,6 +47,11 @@ Morph subclass: #ScratchPresenterMorph
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
 ScratchPresenterMorph initialize!
+Object subclass: #ScratchProcess
+	instanceVariableNames: 'stackFrame topBlock readyToYield errorFlag readyToTerminate answer atomicityList blockVarList scriptList ci'
+	classVariableNames: 'BlockHighlightMSecs Times'
+	poolDictionaries: ''
+	category: 'Scratch-Execution Engine'!
 ScratchScriptEditorMorph removeSelector: #addLockButton!
 ScratchScriptEditorMorph removeSelector: #addNameBox!
 ScratchScriptEditorMorph removeSelector: #addReadouts!
@@ -90,4 +105,14 @@ Morph subclass: #ScratchViewerMorph
 	category: 'Scratch-UI-Panes'!
 ScratchViewerMorph initialize!
 ScratchWorkpaneMorph removeSelector: #drawSubmorphsOn:!
+ScriptableScratchMorph removeSelector: #getUsername!
 ScriptableScratchMorph class removeSelector: #blockColorFor:!
+ArgMorph subclass: #SpriteArgMorph
+	instanceVariableNames: 'menuIconMorph morph type'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+WhenClonedEventHatMorph removeSelector: #isMouseClickEventHatMorph!
+WhenClonedEventHatMorph removeSelector: #receiverName!
+WhenGreaterThanHatBlockMorph removeSelector: #eventNameMatches:!
+WhenGreaterThanHatBlockMorph removeSelector: #triggered!

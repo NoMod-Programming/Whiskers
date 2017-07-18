@@ -1,8 +1,7 @@
 
-!ScriptableScratchMorph class methodsFor: 'block specs' stamp: 'EMP 7/14/2017 22:24'!
+!ScriptableScratchMorph class methodsFor: 'block specs' stamp: 'EMP 7/16/2017 19:43'!
 blockSpecs
 	"Answer a collection of block specifications for the blocks that are common to all objects. Block specificatons (Arrays) are interspersed with category names (Strings). A block specification is an Array of the form: (<block spec string> <block type> <selector> [optional initial argument values]).
-
 	Explanation of flags:
 		-	no flags
 		b	boolean reporter
@@ -14,40 +13,22 @@ blockSpecs
 		K	key event hat
 		M	mouse-click event hat
 		S	start event hat
-		W	when <condition> hat (obsolete)"
+		W	when <condition> hat (obsolete)
+		B	when backdrop switches to..."
 
 	| blocks |
-	blocks := #(
+	blocks _ #(
 		'Events'
-			('when %m clicked'				S	-)
-			('when %k key pressed'			K	-)
-			('when %m clicked'				M	-)
-			('when backdrop switches to'	-	whoKnows)
+			('when @greenFlag clicked'		S	-)
+			('when %m.key key pressed'	K	-)
+			('when this sprite clicked'		M	-)
+			('when backdrop switches to %m.backdrop'	B	-)
 			-
-			('when loudness >'				-	whoKnows)
+			('when [loudness v] > %n'		H	-)
 			-
-			('when I receive %e'			E	-)
-			('broadcast %e'					-	broadcast:)
-			('broadcast %e and wait'		s	doBroadcastAndWait)
-		'Control'
-			('wait %n secs'					t	wait:elapsed:from: 1)
-			-
-			('repeat %n'					c	doRepeat 10)
-			('forever'						c	doForever)
-			-
-			('xforever if %b'					c	doForeverIf)
-			('if %b'							c	doIf)
-			('if %b'							c	doIfElse)
-			('wait until %b'					s	doWaitUntil)
-			('repeat until %b'				c	doUntil)
-			-
-			('stop [v]'						-	whoKnows)
-			('xstop script'					s	doReturn)
-			('xstop all'						-	stopAll)
-			-
-			('when i start as a clone'		-	-)
-			('create clone of []'				-	whoKnows)
-			('delete this clone'				-	whoKnows)
+			('when I receive %m.broadcast'			E	-)
+			('broadcast %m.broadcast'					-	broadcast:)
+			('broadcast %m.broadcast and wait'			s	doBroadcastAndWait)
 		'Operators'
 			('%n + %n'						r	+ - -)
 			('%n - %n'						r	- - -)
@@ -71,20 +52,20 @@ blockSpecs
 			('%n mod %n'					r	\\ - -)
 			('round %n'						r	rounded -)
 			-
-			('%f of %n'						r	computeFunction:of: 'sqrt' 10)
+			('%m.mathOp of %n'						r	computeFunction:of: 'sqrt' 10)
 		'Sound'
-			('play sound %S'				-	playSound:)
-			('play sound %S until done'		s	doPlaySoundAndWait)
+			('play sound %m.sound'				-	playSound:)
+			('play sound %m.sound until done'		s	doPlaySoundAndWait)
 			('stop all sounds'				-	stopAllSounds)
 			-
-			('play drum %D for %n beats'	t 	drum:duration:elapsed:from: 48 0.25)
+			('play drum %d.drum for %n beats'	t 	drum:duration:elapsed:from: 1 0.25)
 			('rest for %n beats'				t 	rest:elapsed:from: 0.25)
 			-
-			('play note %N for %n beats'	t	noteOn:duration:elapsed:from: 60 0.5)
-			('set instrument to %I'			- 	midiInstrument: 1)
+			('play note %d.note for %n beats'	t	noteOn:duration:elapsed:from: 60 0.5)
+			('set instrument to %d.instrument'			- 	midiInstrument: 1)
 			-
 			('change volume by %n'		- 	changeVolumeBy: -10)
-			('set volume to %n%'			- 	setVolumeTo: 100)
+			('set volume to %n %'			- 	setVolumeTo: 100)
 			('volume'						r 	volume)
 			-
 			('change tempo by %n'			- 	changeTempoBy: 20)
@@ -95,24 +76,22 @@ blockSpecs
 			('motor on'						-	allMotorsOn)
 			('motor off'						-	allMotorsOff)
 			('motor power %n'				-	startMotorPower: 100)
-			('motor direction %W'			-	setMotorDirection: 'this way')
+			('motor direction %m.motorDirection'			-	setMotorDirection: 'this way')
 		'Variables'
-			('show variable %v'				-	showVariable:)
-			('hide variable %v'				-	hideVariable:)
+			('show variable %m.var'				-	showVariable:)
+			('hide variable %m.var'				-	hideVariable:)
 		'List'
-			('add %s to %L'					-	append:toList: 'thing')
+			('add %s to %m.list'					-	append:toList: 'thing')
 			-
-			('delete %y of %L'				-	deleteLine:ofList: 1)
-			('insert %s at %i of %L'			-	insert:at:ofList: 'thing' 1)
-			('replace item %i of %L with %s'		-	setLine:ofList:to: 1 'list' 'thing')
+			('delete %d.listDeleteItem of %m.list'				-	deleteLine:ofList: 1)
+			('insert %s at %d.listItem of %m.list'			-	insert:at:ofList: 'thing' 1)
+			('replace item %d.listItem of %m.list with %s'		-	setLine:ofList:to: 1 'list' 'thing')
 			-
-			('item %i of %L'					r	getLine:ofList: 1)
-			('length of %L'					r	lineCountOfList:)
-			('%L contains %s'				b	list:contains: 'list' 'thing')
+			('item %d.listItem of %m.list'					r	getLine:ofList: 1)
+			('length of %m.list'					r	lineCountOfList:)
+			('%m.list contains %s'				b	list:contains: 'list' 'thing')
 			-
-			('xshow list %L'					-	whoKnows)
-			('xhide list %L'					-	whoKnows)
+			('show list %m.list'					-	showList:)
+			('hide list %m.list'					-	hideList:)
 	).
-
-	^ blocks, self obsoleteBlockSpecs
-! !
+	^ blocks, self obsoleteBlockSpecs! !

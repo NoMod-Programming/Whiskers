@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/16/2017 13:06'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 17:09'!
 blockFromTuple: tuple receiver: scriptOwner
 	"Answer a new block for the given tuple."
 
@@ -15,9 +15,11 @@ blockFromTuple: tuple receiver: scriptOwner
 			commandSpec: tuple second;
 			selector: #contentsOfList:].
 
-	(#(EventHatMorph KeyEventHatMorph MouseClickEventHatMorph WhenHatBlockMorph) includes: k) ifTrue: [
+	(#(call getParam) includes: k) ifTrue: [
+		^ self customBlockFromTuple: tuple receiver: scriptOwner].
+
+	(#(EventHatMorph KeyEventHatMorph MouseClickEventHatMorph WhenHatBlockMorph whenSceneStarts whenSensorGreaterThan procDef whenCloned) includes: k) ifTrue: [
 		block := self hatBlockFromTuple: tuple receiver: scriptOwner.
-		(block isWhenHatMorph) ifTrue: [block color: Color red].
 		^ block].
 
 	#scratchComment = k ifTrue: [
@@ -34,6 +36,18 @@ blockFromTuple: tuple receiver: scriptOwner
 		tuple size > 2 ifTrue: [(tuple at: 3) ifFalse: [block toggleShowing]].
 		block color: (Color r: 0.8 g: 0 b: 0).  "obsolete"
 		^ block].
+
+	#doForeverIf = k ifTrue: [
+		^ self blockFromTuple: {#doForever. {{#doIf. tuple second. tuple third}}} receiver: scriptOwner
+	].
+
+	#stopAll = k ifTrue: [
+		^ self blockFromTuple: #(stopScripts 'all') receiver: scriptOwner
+	].
+
+	#doReturn = k ifTrue: [
+		^ self blockFromTuple: #(stopScripts 'this script') receiver: scriptOwner
+	].
 
 	(#(whenGreenFlag whenIReceive whenClicked whenKeyPressed setVar:to: changeVar:by: startScene nextScene %) includes: k) ifTrue: [
 		block := self scratch2BlockFromTuple: tuple receiver: scriptOwner.

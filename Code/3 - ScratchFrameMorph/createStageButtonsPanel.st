@@ -1,5 +1,5 @@
 
-!ScratchFrameMorph methodsFor: 'intialization' stamp: 'EMP 7/14/2017 13:19'!
+!ScratchFrameMorph methodsFor: 'intialization' stamp: 'EMP 7/17/2017 15:47'!
 createStageButtonsPanel
 	"Create and add a panel containing the project title, green flag, and stop buttons."
 
@@ -54,7 +54,9 @@ createStageButtonsPanel
 		stageButtonsPanel addMorphBack: button.
 		bName = #go ifTrue: [
 			flagButton := button.
-			stageButtonsPanel addMorphBack: (Morph new color: Color transparent; extent: 5@5)]].
+			stageButtonsPanel addMorphBack: (Morph new color: Color transparent; extent: 5@5)].
+		bName = #stop ifTrue: [
+			stopButton := button]].
 
 	titlePane addMorph: stageButtonsPanel.
 ! !

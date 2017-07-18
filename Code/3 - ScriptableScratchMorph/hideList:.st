@@ -1,0 +1,15 @@
+
+!ScriptableScratchMorph methodsFor: 'list ops' stamp: 'EMP 7/16/2017 19:21'!
+hideList: aListName
+	| list sFrame stage |
+	stage := self ownerOrYourselfThatIsA: ScratchStageMorph.
+	(self listVarNames includes: aListName)
+		ifTrue: [list := lists at: aListName]
+		ifFalse: 
+			[stage ifNil: [^ self].
+			(stage listVarNames includes: aListName)
+				ifTrue: [list _ stage lists at: aListName]
+				ifFalse: [^ self]].
+	list delete.
+	(sFrame _ self ownerScratchFrame) ifNil: [^ self].
+	sFrame viewerPane categoryChanged: 'Data'! !

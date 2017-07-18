@@ -1,13 +1,11 @@
 
-!ScratchStageMorph methodsFor: 'object i/o' stamp: 'EMP 7/16/2017 15:08'!
+!ScratchStageMorph methodsFor: 'object i/o' stamp: 'EMP 7/17/2017 17:11'!
 readJSON: aDictionary images: images sounds: sounds
 	| listWatchers spritesByName spritesInOrder variableWatchers |
 	super
 		readJSON: aDictionary
 		images: images
 		sounds: sounds.
-
-	aDictionary inspect.
 
 	listWatchers := OrderedCollection new.
 	variableWatchers := OrderedCollection new.

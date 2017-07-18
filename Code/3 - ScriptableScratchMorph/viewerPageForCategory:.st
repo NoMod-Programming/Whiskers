@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/13/2017 19:01'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 14:30'!
 viewerPageForCategory: aCategoryName
 	"Answer a morph containing blocks for the given category for use in the given ScratchViewer."
 
@@ -7,6 +7,7 @@ viewerPageForCategory: aCategoryName
 	aCategoryName = 'Data' ifTrue: [^ self variablesPage].
 	aCategoryName = 'Motion' ifTrue: [^ self viewerPageForMotion].
 	aCategoryName = 'Sensing' ifTrue: [^ self viewerPageForSensing].
+	aCategoryName = 'More Blocks' ifTrue: [^ self viewerPageForMore].
 
 	bin := ScratchBlockPaletteMorph new.
 	x := 12.

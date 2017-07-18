@@ -1,5 +1,5 @@
 
-!ScratchLibraryMorph methodsFor: 'geometry' stamp: 'EMP 7/14/2017 16:48'!
+!ScratchLibraryMorph methodsFor: 'geometry' stamp: 'EMP 7/16/2017 21:40'!
 fixLayout
 	"Position and size thumbnails."
 
@@ -10,7 +10,7 @@ fixLayout
 	spritePane height: topSectionHeight.
 	
 	buttonPane top: (self top + (topSectionHeight // 2) - (buttonPane height // 2) + 14);
-		right: self right - 7.
+		right: self right - 17.
 
 	stagePane height = self height ifFalse: [
 		stagePane height: self height].

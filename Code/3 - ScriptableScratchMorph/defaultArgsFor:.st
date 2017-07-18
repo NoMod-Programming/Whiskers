@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/14/2017 22:28'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/16/2017 19:21'!
 defaultArgsFor: blockSpec
 	"Answer the default argument for the given block specification."
 
@@ -85,7 +85,7 @@ defaultArgsFor: blockSpec
 		defaultArgs size >= 1 ifTrue: [
 			defaultArgs at: 1 put: (defaultArgs at: 1) localized]].
 
-	(#(append:toList: deleteLine:ofList: getLine:ofList: insert:at:ofList: lineCountOfList:)
+	(#(append:toList: deleteLine:ofList: getLine:ofList: insert:at:ofList: lineCountOfList: showList: hideList:)
 		includes: sel) ifTrue: [
 			defaultArgs := defaultArgs copyWith: self defaultListName].
 

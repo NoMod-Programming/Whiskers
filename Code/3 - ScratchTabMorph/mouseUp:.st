@@ -1,9 +1,9 @@
 
-!ScratchTabMorph methodsFor: 'event handling' stamp: 'EMP 7/14/2017 16:02'!
+!ScratchTabMorph methodsFor: 'event handling' stamp: 'EMP 7/16/2017 20:01'!
 mouseUp: evt
 	(bounds containsPoint: evt cursorPoint) ifTrue: [
 		selected := true.
 		mouseOver := false.
-		owner currentTab: label.
+		owner currentTab: id.
 		self changed
 	]! !

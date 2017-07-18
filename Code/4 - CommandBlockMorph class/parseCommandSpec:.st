@@ -1,34 +1,19 @@
 
-!CommandBlockMorph class methodsFor: 'utilities' stamp: 'EMP 7/14/2017 23:34'!
-parseCommandSpec: aCommandSpec
-	"Answer an array of token strings containing my keywords and argument specs."
-	| result len i currentToken k |
-	result  :=  OrderedCollection new.
-	len  :=  aCommandSpec size.
-	i  :=  1.
-	currentToken := ''.
-	[(i < len) and: [(aCommandSpec at: i) isSeparator]] whileTrue: [i  :=  i + 1].
-	[i <= len] whileTrue: [
-		k := aCommandSpec at: i.
-		k = $% ifTrue: [
-			result add: currentToken.
-			currentToken := ''.
-			[i >= len or: [' ?-' includes: k]] whileFalse: [
-				currentToken := currentToken, k.
-				i := i + 1.
-				k := aCommandSpec at: i.
-			].
-			result add: currentToken.
-			currentToken := ''.
-			i = len ifTrue: [
-				result at: (result size) put: (result last, k).
-				k := ''.
-			].
-		].
-		currentToken := currentToken, k.
-		i := i + 1.
-	].
-	result add: currentToken.
-
-	result  :=  result collect: [:s | s withBlanksTrimmed].
-	^ result asArray select: [:s | s ~= '']! !
+!CommandBlockMorph class methodsFor: 'utilities' stamp: 'EMP 7/17/2017 12:26'!
+parseCommandSpec: aString
+	"CommandBlockMorph parseCommandSpec: '\\%n'"
+	| result temp i |
+	result := OrderedCollection new.
+	temp := ''.
+	i := 1.
+	aString do: [:char |
+		temp _ temp, char asString.
+		i _ i + 1.
+		(((((aString at: i ifAbsent: [$ ]) = $% | ((aString at: i ifAbsent: [$ ]) = $@)) and: [((aString at: i + 1 ifAbsent: [$ ]) = $ ) not]) and: [(((aString at: i - 3 ifAbsent: [$ ]) ~= $\) and: [((aString at: i - 1 ifAbsent: [$ ]) = $\) & ((aString at: i - 2 ifAbsent: [$ ]) = $\)]) not])) ifTrue: [
+			result add: (temp withoutLeadingBlanks withoutTrailingBlanks).
+			temp := ''].
+		((((temp at: 1 ifAbsent: [nil]) = $%) | ((temp at: 1 ifAbsent: [nil]) = $@)) and: [(aString at: i ifAbsent: [nil]) = $ ]) ifTrue: [
+			result add: (temp withoutLeadingBlanks withoutTrailingBlanks).
+			temp := '']].
+	result add: (temp withoutLeadingBlanks withoutTrailingBlanks).
+	^ ( result select: [:m | m ~= '']) asArray! !

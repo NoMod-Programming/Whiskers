@@ -1,3 +1,48 @@
+EventHatMorph subclass: #BackdropEventHatMorph
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+
+!BackdropEventHatMorph commentStamp: '<historical>' prior: 0!
+I am a hat block for stacks triggered by Scratch keyboard events.
+!
+
+DialogBoxMorph subclass: #BlockCreationDialog
+	instanceVariableNames: 'isAtomic block blockColumn blockParts blockPartsBin showHideButton isAtomicButton bin showingBin'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Dialogs'!
+CommandBlockMorph subclass: #BlockCreatorMorph
+	instanceVariableNames: 'lastParameters'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+ExpressionArgMorph subclass: #ColoredExpressionArgMorph
+	instanceVariableNames: 'type'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+BlockMorph subclass: #CommandBlockMorph
+	instanceVariableNames: 'commandSpec argPermutation argMorphs titleMorph receiver selector isReporter isTimed wantsName wantsPossession numberArgFlags stopFrame '
+	classVariableNames: 'CBlockBottomBarForm CBlockBottomBarWithTabsForm CBlockTopBarForms '
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+ExpressionArgMorph subclass: #CustomBlockLabelMorph
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+CommandBlockMorph subclass: #CustomProcedureHolder
+	instanceVariableNames: 'paramNames'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+ReporterBlockMorph subclass: #CustomReporterMorph
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
 ScratchMedia subclass: #ImageMedia
 	instanceVariableNames: 'form rotationCenter textBox jpegBytes compositeForm savedForm svgForm '
 	classVariableNames: 'JPEGPlaceholderForm '
@@ -64,6 +109,16 @@ TestCase subclass: #JsonTests
 !JsonTests commentStamp: '<historical>' prior: 0!
 I provide a number of test cases for class Json.!
 
+CommandBlockMorph subclass: #ProcCallBlockMorph
+	instanceVariableNames: 'script'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+HatBlockMorph subclass: #ProcedureHatBlockMorph
+	instanceVariableNames: 'spec parameterNames isAtomic block vars runningMouse'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
 SVGRenderer subclass: #SVGBalloonRenderer
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -198,13 +253,27 @@ SVGCompositeMorph subclass: #SVGTextMorph
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'SVG-Morphic'!
+ScratchEvent subclass: #ScratchBackdropChangeEvent
+	instanceVariableNames: 'backdropName'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Execution Engine'!
+
+!ScratchBackdropChangeEvent commentStamp: '<historical>' prior: 0!
+I represent a scratch event where a key has been pressed and needs to be broadcast across the system. I do *not* get sent across the scratch network to other connected systems!
+
 Morph subclass: #ScratchCategorySelector
 	instanceVariableNames: 'label translatedLabel categoryColor isSelected textColor'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Scratch-UI-Support'!
+ScratchEvent subclass: #ScratchClonedEvent
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Execution Engine'!
 Morph subclass: #ScratchFrameMorph
-	instanceVariableNames: 'topPane viewerPane scriptsPane stageFrame workPane titlePane libraryPane menuPanel stageButtonsPanel readoutPane logoMorph projectTitleMorph flagButton fillScreenFlag paintingInProgress projectDirectory projectName projectInfo author loginName loginPassword watcherPositions shuffledCostumeNames justSaved viewModeButtons viewMode lastViewMode viewModeButtonsPanel toolbarPanel lastWeDoPoll workPaneWrapper '
+	instanceVariableNames: 'topPane viewerPane scriptsPane stageFrame workPane titlePane libraryPane menuPanel stageButtonsPanel readoutPane logoMorph projectTitleMorph flagButton fillScreenFlag paintingInProgress projectDirectory projectName projectInfo author loginName loginPassword watcherPositions shuffledCostumeNames justSaved viewModeButtons viewMode lastViewMode viewModeButtonsPanel toolbarPanel lastWeDoPoll workPaneWrapper stopButton '
 	classVariableNames: 'AllowRemoteConnectionDialog AllowSharing DefaultNotes DefaultSprite FontDefaults Fonts FontsXO IsXO ScratchClipboard ScratchServers ScratchSkin ScratchSkinXO ShareServer ShareServerPath StartupPresentationMode SupportServer SupportServerPath TakeOverScreen UseErrorCatcher UserFontScale Version VersionDate VisibleDrives WorkpaneExtent '
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
@@ -218,11 +287,21 @@ Morph subclass: #ScratchPresenterMorph
 	classVariableNames: 'TopStyle '
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
+Object subclass: #ScratchProcess
+	instanceVariableNames: 'stackFrame topBlock readyToYield errorFlag readyToTerminate answer atomicityList ci scriptList blockVarList '
+	classVariableNames: 'BlockHighlightMSecs Times '
+	poolDictionaries: ''
+	category: 'Scratch-Execution Engine'!
 Morph subclass: #ScratchScriptEditorMorph
 	instanceVariableNames: 'thumbnailMorph nameMorph pageViewerMorph rotationButtons lockButton readoutMorphs penReadout currentCategory tabPaneMorph deleteButton target topSectionHeight viewerPane '
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
+Object subclass: #ScratchStackFrameToPerform
+	instanceVariableNames: 'parentFrame selector'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Execution Engine'!
 Morph subclass: #ScratchTabMorph
 	instanceVariableNames: 'id label translatedLabel selected mouseOver'
 	classVariableNames: 'NormalStyle SelectedStyle'
@@ -265,3 +344,23 @@ Morph subclass: #ScratchWorkpaneMorph
 !ScratchWorkpaneMorph commentStamp: 'EMP 7/14/2017 10:10' prior: 0!
 I hold the workPane and titlePane for the ScratchFrameMorph, to prevent it from having to draw everything, or having to compute bounds multiple times while drawing.!
 
+ArgMorph subclass: #SpriteArgMorph
+	instanceVariableNames: 'menuIconMorph morph type '
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+EventHatMorph subclass: #WhenClonedEventHatMorph
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+
+!WhenClonedEventHatMorph commentStamp: '<historical>' prior: 0!
+I am a hat block for stacks triggered by clicking on an object with the mouse.
+!
+
+HatBlockMorph subclass: #WhenGreaterThanHatBlockMorph
+	instanceVariableNames: 'argMorph argMorph2 lastState lastArg secondArgMorph'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!

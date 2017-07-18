@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/13/2017 18:41'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 15:21'!
 blocksFor: aCategory
 	"Answer a collection of blocks for the given category. Mixed with the blocks are dash and tilde symbols (#- and #~) indicating where full and half spaces should be inserted when laying out the blocks."
 
@@ -17,5 +17,5 @@ blocksFor: aCategory
 						ifFalse: [
 							(b := self blockFromSpec: spec color: blockColor) ifNotNil: [
 								blocksList addLast: b]]]]].
-	^ blocksList asArray
-! !
+	aCategory = 'More Blocks' ifTrue: [(blocksBin submorphs select: [:submorph | submorph isKindOf: ProcedureHatBlockMorph]) do: [:hatBlock | b _ self procBlockFromSpec: {hatBlock procedure asString. #s. #call} color: (Color r: 99/255 g: 45/255 b: 153/255). blocksList addLast: b]]. 
+	^ blocksList asArray! !

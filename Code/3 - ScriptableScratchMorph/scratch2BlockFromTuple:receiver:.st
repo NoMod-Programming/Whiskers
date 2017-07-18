@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/16/2017 13:17'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 16:40'!
 scratch2BlockFromTuple: tuple receiver: scriptOwner
 	| k block blockColor selector spec varTuple |
 	k := tuple first asSymbol.
@@ -19,7 +19,7 @@ scratch2BlockFromTuple: tuple receiver: scriptOwner
 				scriptOwner: scriptOwner;
 				choice: tuple second
 	].
-	(#(setVar:to: changeVar:to:) includes: k) ifTrue: [
+	(#(setVar:to: changeVar:by:) includes: k) ifTrue: [
 		varTuple := {#changeVariable. tuple second. k. tuple third}.
 		^ self variableBlockFromTuple: varTuple receiver: scriptOwner
 	].
