@@ -1,4 +1,3 @@
-ASN1Module initialize!
 BackdropEventHatMorph removeSelector: #isKeyEventHatMorph!
 BackdropEventHatMorph removeSelector: #respondsToKeyEvent:!
 CommandBlockMorph removeSelector: #addCommandIcons!
@@ -8,8 +7,6 @@ BlockMorph subclass: #CommandBlockMorph
 	poolDictionaries: ''
 	category: 'Scratch-Blocks'!
 CustomReporterMorph removeSelector: #commandSpec!
-DESBitPermutation initialize!
-DESNonPrimitive initialize!
 DockingBarItemMorph removeSelector: #colorToUse!
 ImageMedia removeSelector: #compositeForm!
 ScratchMedia subclass: #ImageMedia
@@ -19,13 +16,8 @@ ScratchMedia subclass: #ImageMedia
 	category: 'Scratch-Objects'!
 Json initialize!
 LibraryItemMorph removeSelector: #drawSubmorphsOn:!
-MD2 initialize!
 MD5NonPrimitive initialize!
-Pkcs12PFX initialize!
-RSAPrivateKey initialize!
-RSAPublicKey initialize!
 RandomGenerator initialize!
-Rijndael initialize!
 SHA1 initialize!
 SampledSound removeSelector: #originalSamplingRate:!
 ScratchBackdropChangeEvent removeSelector: #keyEvent:!
@@ -82,7 +74,7 @@ ScratchScriptEditorMorph removeSelector: #toggleSpriteDraggable!
 ScratchScriptEditorMorph removeSelector: #updateLockButton!
 ScratchScriptEditorMorph removeSelector: #updateRotationButtonHighlight!
 Morph subclass: #ScratchScriptEditorMorph
-	instanceVariableNames: 'thumbnailMorph target pageViewerMorph currentCategory tabPaneMorph viewerPane topSectionHeight'
+	instanceVariableNames: 'thumbnailMorph target pageViewerMorph currentCategory tabPaneMorph viewerPane topSectionHeight renderTransform'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
@@ -119,6 +111,28 @@ ScratchViewerMorph initialize!
 ScratchWorkpaneMorph removeSelector: #drawSubmorphsOn:!
 ScriptableScratchMorph removeSelector: #getUsername!
 ScriptableScratchMorph class removeSelector: #blockColorFor:!
+ScrollFrameMorph removeSelector: #angle!
+ScrollFrameMorph removeSelector: #containsPoint:!
+ScrollFrameMorph removeSelector: #drawSubmorphsOn:!
+ScrollFrameMorph removeSelector: #grabTransform!
+ScrollFrameMorph removeSelector: #invalidRect:from:!
+ScrollFrameMorph removeSelector: #layoutBounds!
+ScrollFrameMorph removeSelector: #localSubmorphBounds!
+ScrollFrameMorph removeSelector: #localVisibleSubmorphBounds!
+ScrollFrameMorph removeSelector: #offset!
+ScrollFrameMorph removeSelector: #offset:!
+ScrollFrameMorph removeSelector: #privateFullMoveBy:!
+ScrollFrameMorph removeSelector: #scale!
+ScrollFrameMorph removeSelector: #scale:!
+ScrollFrameMorph removeSelector: #smoothing!
+ScrollFrameMorph removeSelector: #smoothing:!
+ScrollFrameMorph removeSelector: #submorphBounds!
+ScrollFrameMorph removeSelector: #transformFrom:!
+BorderedMorph subclass: #ScrollFrameMorph
+	instanceVariableNames: 'contents hScrollbar vScrollbar cornerMorph hbarInset vbarInset contentsChanged growthFraction transform smoothing localBounds'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Support'!
 SecureRandom initialize!
 SmalltalkImageInstanceID initialize!
 ArgMorph subclass: #SpriteArgMorph
@@ -126,9 +140,12 @@ ArgMorph subclass: #SpriteArgMorph
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Scratch-Blocks'!
+String removeSelector: #asn1Tag!
+String removeSelector: #formatASN1!
+String removeSelector: #formatASN1TabLevel:!
+String removeSelector: #padLeftTo:with:!
+String removeSelector: #tokensBasedOn:!
 WhenClonedEventHatMorph removeSelector: #isMouseClickEventHatMorph!
 WhenClonedEventHatMorph removeSelector: #receiverName!
 WhenGreaterThanHatBlockMorph removeSelector: #eventNameMatches:!
 WhenGreaterThanHatBlockMorph removeSelector: #triggered!
-X509Certificate initialize!
-X509CertificateExtension initialize!

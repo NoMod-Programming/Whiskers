@@ -1,9 +1,18 @@
 
-!ImageMedia methodsFor: 'other' stamp: 'EMP 7/16/2017 11:22'!
+!ImageMedia methodsFor: 'other' stamp: 'EMP 7/18/2017 16:51'!
 exportFilename: fileName for: stageOrSprite
 	"Export my image to a file with the given name. Save sprite costumes as GIF's, dropping color resolution if necessary."
 
 	| myForm f fName |
+
+	svgForm ifNotNil: [
+		fName := (FileDirectory baseNameFor: fileName), '.svg'.
+		f := ScratchFrameMorph newScratchFileNamed: fName.
+		f ifNil: [^ self].
+		svgForm printXMLOn: (XMLWriter on: f).
+		f close.
+	].
+
 	myForm := self compositeFormForScale: 1.0.
 
 	"save as GIF if image has under 256 colors"

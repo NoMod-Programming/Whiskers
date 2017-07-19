@@ -1,8 +1,8 @@
 ﻿
-!ScratchFrameMorph methodsFor: 'menu/button actions' stamp: 'EMP 7/14/2017 21:51'!
+!ScratchFrameMorph methodsFor: 'menu/button actions' stamp: 'EMP 7/18/2017 16:28'!
 aboutScratch
 	| dialog |
-	dialog := DialogBoxMorph new title: 'About Scratch';
+	dialog := DialogBoxMorph new title: 'About Whiskers';
 			
 				withButtonsForYes: false
 				no: false
@@ -11,7 +11,9 @@ aboutScratch
 	dialog message: 'Whiskers ' , Version , '
 
 Original system Copyright © 2009 Massachusetts Institute of Technology.
-NuScratch (Bug fixes and changes to support modern Squeak systems Copyright ©2012-6 tim Rowledge.
+NuScratch (Bug fixes and changes to support modern Squeak systems) Copyright ©2012-6 tim Rowledge.
+Logo by @Penguin5664
+Website by @infinitytec
 
 This release made under the same conditions as the Scratch Source Code License.
 ' font: (ScratchFrameMorph getFont: #AboutScratch).

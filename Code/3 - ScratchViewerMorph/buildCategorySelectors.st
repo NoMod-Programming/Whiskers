@@ -1,5 +1,5 @@
 
-!ScratchViewerMorph methodsFor: 'initialization' stamp: 'EMP 7/14/2017 15:03'!
+!ScratchViewerMorph methodsFor: 'initialization' stamp: 'EMP 7/18/2017 16:32'!
 buildCategorySelectors
 
 	| maxExtent b pad leftColumnX rightColumnX x y label |
@@ -8,7 +8,7 @@ buildCategorySelectors
 
 	"Create new buttons, keeping track of the maximum extent."
 	maxExtent := 100@20.
-	categoryButtons := CatList collect: [:cat |
+	categoryButtons := (CatList select: [:cat | cat fifth]) collect: [:cat |
 		label := cat first.
 		b := ScratchCategorySelector new.
 		b color: color.
@@ -18,7 +18,7 @@ buildCategorySelectors
 
 	"calculate catButtonsExtent"
 	pad := 5. "padding on left, right, and betwen the button columns"
-	catButtonsExtent := (2 * maxExtent x) @ (((CatList size // 2) * (maxExtent y + 2 + 5))).
+	catButtonsExtent := (2 * maxExtent x) @ (((categoryButtons size // 2) * (maxExtent y + 2 + 5))).
 
 	"place the buttons"
 	leftColumnX := self left + (pad * 2).

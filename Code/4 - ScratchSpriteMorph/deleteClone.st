@@ -1,4 +1,7 @@
 
-!ScratchSpriteMorph methodsFor: 'clone ops' stamp: 'EMP 7/17/2017 17:06'!
+!ScratchSpriteMorph methodsFor: 'clone ops' stamp: 'EMP 7/18/2017 15:44'!
 deleteClone
-	isClone ifTrue: [self delete].! !
+	| frame |
+	isClone ifTrue: [self delete] ifFalse: [^ self].
+	(frame _ self ownerScratchFrame) ifNil: [(frame _ ((self ownerThatIsA: OffscreenWorldMorph) frame)) ifNil: [^ self]].
+	frame workPane deleteClone! !

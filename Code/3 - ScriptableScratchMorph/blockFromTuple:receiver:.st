@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 17:09'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/18/2017 16:21'!
 blockFromTuple: tuple receiver: scriptOwner
 	"Answer a new block for the given tuple."
 
@@ -34,7 +34,7 @@ blockFromTuple: tuple receiver: scriptOwner
 		block := CommentBlockMorph new.
 		tuple size > 1 ifTrue: [block comment: (tuple at: 2)].
 		tuple size > 2 ifTrue: [(tuple at: 3) ifFalse: [block toggleShowing]].
-		block color: (Color r: 0.8 g: 0 b: 0).  "obsolete"
+		block color: (ScratchViewerMorph colorForCategory: 'undefined').  "obsolete"
 		^ block].
 
 	#doForeverIf = k ifTrue: [
@@ -58,10 +58,10 @@ blockFromTuple: tuple receiver: scriptOwner
 		spec := BlockSpecDict
 					at: k
 					ifAbsent: [nil].
-		spec ifNil: [^ scriptOwner blockFromSpec: #('obsolete!!' - undefined) color: Color red].
+		spec ifNil: [^ scriptOwner blockFromSpec: #('obsolete!!' - undefined) color: (ScratchViewerMorph colorForCategory: 'undefined')].
 		blockColor := BlockColorDict
 							at: k
-							ifAbsent: [Color red].
+							ifAbsent: [ScratchViewerMorph colorForCategory: 'undefined'].
 		block := scriptOwner blockFromSpec: spec color: blockColor
 	].
 

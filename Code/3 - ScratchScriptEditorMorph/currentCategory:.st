@@ -1,5 +1,5 @@
 
-!ScratchScriptEditorMorph methodsFor: 'accessing' stamp: 'EMP 7/14/2017 16:56'!
+!ScratchScriptEditorMorph methodsFor: 'accessing' stamp: 'EMP 7/18/2017 17:05'!
 currentCategory: aString
 
 	| xOffset |

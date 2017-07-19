@@ -1,11 +1,11 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 15:14'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/18/2017 16:22'!
 customBlockFromTuple: tuple receiver: scriptOwner
 	"Answer a new block for the given tuple."
 
 	| spec blockColor block argCount arg argBlock |
 
-	(tuple first = #getParam) ifTrue: [spec _ {tuple second. tuple third. tuple second}. blockColor _ (Color r: 89/255 g: 71/255 b: 177/255).] ifFalse: [spec _ {tuple second. (tuple first = #callReporter) ifTrue: [#rs] ifFalse: [#s]. tuple first}. blockColor _ (Color r: 99/255 g: 45/255 b: 153/255).].
+	(tuple first = #getParam) ifTrue: [spec _ {tuple second. tuple third. tuple second}. blockColor _ (ScratchViewerMorph colorForCategory: 'Parameter').] ifFalse: [spec _ {tuple second. (tuple first = #callReporter) ifTrue: [#rs] ifFalse: [#s]. tuple first}. blockColor _ (ScratchViewerMorph colorForCategory: 'More Blocks').].
 
 	block _ scriptOwner customBlockFromSpec: spec color: blockColor.
 	(block isKindOf: CommandBlockMorph) ifTrue: [

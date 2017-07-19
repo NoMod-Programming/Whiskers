@@ -1,5 +1,5 @@
 
-!ScratchScriptEditorMorph methodsFor: 'initialization' stamp: 'EMP 7/15/2017 15:42'!
+!ScratchScriptEditorMorph methodsFor: 'initialization' stamp: 'EMP 7/18/2017 17:04'!
 initialize
 
 	super initialize.

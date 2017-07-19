@@ -1,9 +1,9 @@
 
-!ScrollFrameMorph2 methodsFor: 'scrollbar visibility' stamp: 'EMP 7/16/2017 21:18'!
+!ScrollFrameMorph2 methodsFor: 'scrollbar visibility' stamp: 'EMP 7/18/2017 17:59'!
 showHorizontalScrollbar: aBoolean
 	"Show or hide my horizontal scrollbar."
 
-	(owner isKindOf: ScratchViewerMorph) ifTrue: [^ self].
+	"(owner isKindOf: ScratchViewerMorph) ifTrue: [^ self]."
 	aBoolean = (hScrollbar owner = self) ifTrue: [^ self].
 
 	aBoolean

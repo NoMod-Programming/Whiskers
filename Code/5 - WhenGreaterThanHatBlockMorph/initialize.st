@@ -1,5 +1,5 @@
 
-!WhenGreaterThanHatBlockMorph methodsFor: 'initialization' stamp: 'EMP 7/16/2017 21:47'!
+!WhenGreaterThanHatBlockMorph methodsFor: 'initialization' stamp: 'EMP 7/18/2017 12:09'!
 initialize
 
 	| s1 s2 |
@@ -7,7 +7,7 @@ initialize
 	lastState _ false.
 	lastArg _ nil.
 	argMorph _ (ExpressionArgMorph new).
-	secondArgMorph _ (ChoiceArgMorph new choice: 'loudness'; options: #('timer' 'loudness'); color: color).
+	secondArgMorph _ (ChoiceArgMorph new choice: 'loudness'; options: #('timer' 'loudness'); color: color darker).
 	lastState _ false.
 
 	s1 _ 'when' localized.
