@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../resources/style.css" />
+    <link rel="icon" href="../resources/favicon.ico" type="image/x-icon" />
+    <title>Download Whiskers</title>
+</head>
+
+<body>
+    <header>
+        <img src="../resources/logo.png" class="logo" alt="logo">
+        <nav class="fullnav">
+            <a href="../index.html">Home</a>
+            <a href="#" class="current">Download and Install</a>
+            <a href="https://scratch.mit.edu/discuss/topic/157672/">Scratch Discussion</a>
+            <a href="https://github.com/NoMod-Programming/Whiskers">GitHub Source</a>
+        </nav>
+        <nav class="smallnav">
+            <a class="dropdown">&#x2630; Menu</a>
+            <div id="dropdown-content">
+                <a href="../index.html">Home</a>
+                <a href="#" class="current">Download and Install</a>
+                <a href="https://scratch.mit.edu/discuss/m/topic/157672/">Scratch Discussion</a>
+                <a href="https://github.com/NoMod-Programming/Whiskers">GitHub Source</a>
+            </div>
+        </nav>
+    </header>
+    <div id="main">
+        <div id="content">
+            <h1>Download Whiskers</h1>
+            <a href="https://github.com/NoMod-Programming/Whiskers/raw/master/Build/Whiskers.image" class="big">Click here to download the latest image</a><a href="https://github.com/infinitytec/Whiskers-Website/releases/latest" class="big">Windows installer download page</a>
+            <br>
+            <h1>Installation instructions</h1>
+            <a href="#windows" class="big">Windows</a><a href="#mac" class="big">macOS</a><a href="#rpi" class="big">Raspberry Pi</a><a href="#linux" class="big">Other Linux</a>
+            <br>
+            
+            <p id="windows" class="spacer"></p>
+            <h1>Instructions for installing on Windows</h1>
+            <p>Instructions for using the installer:</p>
+            <p>Download the latest installer from <a href="https://github.com/infinitytec/Whiskers-Website/releases/latest" class="link">here</a>.</p>
+            <p>Open the installer application and follow the onscreen instructions. You must have administrative privileges.</p>
+            <p>Whiskers should run. If you have any questions, please ask at the <a href="https://scratch.mit.edu/discuss/topic/157672/" class="link">forum</a>.</p>
+            <p>Instructions for a manual installation:</p>
+            <p>Download the <a href="https://github.com/NoMod-Programming/Whiskers/raw/master/Build/Whiskers.image" class="link">Whiskers image file</a>.</p>
+            <p>Download the latest version of Squeak Smalltalk — A link to the download can be found on <a href="http://squeak.org" class="link">Squeak.org</a>.</p>
+            <p>Unzip the Squeak download and Whiskers image.</p>
+            <p>Drag the Whiskers.image file to the SqueakConsole.exe or Squeak.exe file or set the .image file to open in Squeak.</p>
+            <p>Whiskers should run. If you have any questions, please ask at the <a href="https://scratch.mit.edu/discuss/topic/157672/" class="link">forum</a>.</p>
+            
+            <p id="mac" class="spacer"></p>
+            <h1>Instructions for installing on macOS</h1>
+            <p>Download the <a href="https://github.com/NoMod-Programming/Whiskers/raw/master/Build/Whiskers.image" class="link">Whiskers image file</a> and <a href="http://files.squeak.org/5.1/Squeak5.1-16549-32bit/Squeak5.1-16549-32bit-201701281910-macOS.zip" class="link">the Squeak VM for macOS</a> and unzip it. If you like you can rename the app to Whiskers and drag it into your Applications folder.</p>
+            <p>Now right click on the app and select the option “Show Package Contents” and double click Contents and Resources. Look through the files and find the default image file. The name starts with “Squeak," then the Squeak version number and “-32bit”.</p>
+            <p>Click on it, and then click again to select the file's name. Copy the name and then you can click out of it. Now go back to the Whiskers image file and rename it to be called the same as the image file you found earlier.</p>
+            <p>Now drag the Whiskers image file into the Resources folder. You'll be asked what you want to do with the old one, and hit “Replace”.</p>
+            <p>Whiskers should now be properly set up. You should be able to double-click on the app to open Whiskers. If you have any questions, please ask at the <a href="https://scratch.mit.edu/discuss/topic/157672/" class="link">forum</a>.</p>
+            
+            <p id="rpi" class="spacer"></p>
+            <h1>Instructions for installing on the Raspberry Pi</h1>
+            <p>To use on the Pi <a href="https://github.com/NoMod-Programming/Whiskers/raw/master/Build/Whiskers.image" class="link">download the image file</a>, unzip it save it into /home/pi folder and make a copy of it.</p>
+            <p class="code">cp /home/pi/Whiskers.image /home/pi/NuWhiskers.image</p>
+            <p>(You need to use sudo for these commands)</p>
+            <p class="code">sudo cp /home/pi/NuWhiskers.image /usr/share/scratch
+                <br>sudo cp /usr/bin/scratch /usr/bin/nuwhiskers</p>
+            <p>Then</p>
+            <p class="code">sudo nano /usr/bin/nuwhiskers</p>
+            <p>and change line 10 to be</p>
+            <p class="code">IMAGE="/usr/share/scratch/NuWhiskers.image"</p>
+            <p>and save it (CTRL-X followed by Y then enter)</p>
+            <p>Then to run Whiskers type</p>
+            <p class="code">sudo bash /usr/bin/nuwhiskers</p>
+            <p>or create this file using the text editor in /home/pi/Desktop and call it whiskers.desktop</p>
+            <p class="code">nano /home/pi/Desktop/nuwhiskers.desktop
+                <br> [Desktop Entry]
+                <br> Encoding=UTF-8
+                <br> Version=1.0
+                <br> Type=Application
+                <br> Exec=nuwhiskers
+                <br> Icon=scratch
+                <br> Terminal=false
+                <br> Name=NuWhiskers
+                <br> Comment= Programming system and content development tool
+                <br> Categories=Application;Education;Development;
+                <br> MimeType=application/x-scratch-project
+            </p>
+            <p>If you want to run ScratchGPIO with NuWhiskers then follow these isntructions supplied by Steve aka “@NoSheds” on twitter. You must already have Scratch GPIO7 installed. If you haven’t, then follow these instructions:</p>
+            <p>Create a NuWhiskers GPIO desktop icon:</p>
+            <p class="code">nano /home/pi/Desktop/nuwhiskersgpio7.desktop</p>
+            <p>paste in</p>
+            <p class="code">[Desktop Entry]
+                <br> Encoding=UTF-8
+                <br> Version=1.0
+                <br> Type=Application
+                <br> Exec=/opt/scratchgpio7/nuwhiskersgpio7.sh
+                <br> Icon=scratch
+                <br> Terminal=false
+                <br> Name=NuWhiskersGPIO 7
+                <br> Comment= Programming system and content development tool
+                <br> Categories=Application;Education;Development;
+                <br> MimeType=application/x-scratch-project
+            </p>
+            <p>Create a shell script to run ScratchGPIO with NuWhiskers. Simplest way to get the file permissions etc is just to copy the existing scratchgpio7.sh file:</p>
+            <p class="code">sudo cp /opt/scratchgpio7/scratchgpio7.sh /opt/scratchgpio7/nuwhiskersgpio7.sh</p>
+            <p>then edit it with</p>
+            <p class="code">sudo nano /opt/scratchgpio7/nuwhiskersgpio7.sh</p>
+            <p>and change the last line from scratch to nuwhiskers:</p>
+            <p class="code">nuwhiskers --document "/home/pi/Documents/Scratch Projects/rsc.sb" & </p><br><br>
+            <p>Whiskers should run. If you have any questions, please ask at the <a href="https://scratch.mit.edu/discuss/topic/157672/" class="link">forum</a>.</p>
+            
+            <p id="linux" class="spacer"></p>
+            <h1>Instructions for installing on other versions of Linux</h1>
+            <p>Thanks to <a href="http://simplesi.net/" class="link">SimpleSi</a>, <a href="https://scratch.mit.edu/users/Penguin5664/" class="link">Penguin5664</a>, <a href="https://scratch.mit.edu/users/Jonathan50/" class="link">Jonathan50</a>, and <a href="https://scratch.mit.edu/users/infinitytec/" class="link">infinitytec</a> for the inscturctions. The Windows insaller is maintained by <a href="http://infinitytec.github.io" class="link">infinitytec</a>.</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <img src="../resources/cat.png" alt="cat">
+        </div>
+        <div class="footer-content">
+            <p>Whiskers is based on <a href="scratch.mit.edu">Scratch 1.4</a>, &copy;2009 by the Massachusetts Institute of Technology<br>and NuScratch, a project of Tim Rowledge.</p>
+        </div>
+        <div class="footer-content">
+            <p>Whiskers is developded by <a href="https://scratch.mit.edu/users/NoMod-Programming/">NoMod-Programming</a>.</p>
+            <p>Logo design by <a href="https://scratch.mit.edu/users/Penguin5664/">Penguin5664</a>.</p>
+            <p>Website created by <a href="http://infinitytec.github.io">infinitytec</a>.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
