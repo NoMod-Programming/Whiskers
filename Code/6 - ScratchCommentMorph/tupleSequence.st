@@ -1,9 +1,9 @@
 
-!ScratchCommentMorph methodsFor: 'private' stamp: 'EMP 7/17/2017 19:30'!
+!ScratchCommentMorph methodsFor: 'private' stamp: 'EMP 11/5/2017 20:52'!
 tupleSequence
 	"Answer an array with a single tuple describing this comment."
 
-	anchor isNil
+	"anchor isNil
 		ifTrue: [
 			^ Array
 				with: #scratchComment
@@ -17,5 +17,11 @@ tupleSequence
 				with: commentMorph contents
 				with: isShowing
 				with: self width
-				with: anchor blockID]
-! !
+				with: anchor blockID]"
+	^ {
+		self width.
+		commentMorph height + 12.
+		isShowing.
+		anchor ifNil: [-1] ifNotNil: [anchor blockID].
+		commentMorph contents.
+	}! !

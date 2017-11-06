@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph class methodsFor: 'block specs' stamp: 'EMP 7/16/2017 19:43'!
+!ScriptableScratchMorph class methodsFor: 'block specs' stamp: 'EMP 11/3/2017 22:52'!
 blockSpecs
 	"Answer a collection of block specifications for the blocks that are common to all objects. Block specificatons (Arrays) are interspersed with category names (Strings). A block specification is an Array of the form: (<block spec string> <block type> <selector> [optional initial argument values]).
 	Explanation of flags:
@@ -77,7 +77,7 @@ blockSpecs
 			('motor off'						-	allMotorsOff)
 			('motor power %n'				-	startMotorPower: 100)
 			('motor direction %m.motorDirection'			-	setMotorDirection: 'this way')
-		'Variables'
+		'Data'
 			('show variable %m.var'				-	showVariable:)
 			('hide variable %m.var'				-	hideVariable:)
 		'List'

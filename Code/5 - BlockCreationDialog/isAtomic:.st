@@ -1,6 +1,7 @@
 
-!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 7/17/2017 11:45'!
+!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 11/5/2017 22:28'!
 isAtomic: aBoolean
 	| isAtomicButtonTemp |
-	isAtomic _ aBoolean.
-aBoolean ifTrue: [isAtomicButtonTemp _ (isAtomicButton submorphs detect: [:m | m isKindOf: ToggleButton] ifNone: [nil]). isAtomicButtonTemp ifNotNil: [isAtomicButtonTemp on]] ifFalse: [isAtomicButtonTemp _ (isAtomicButton submorphs detect: [:m | m isKindOf: ToggleButton] ifNone: [nil]). isAtomicButtonTemp ifNotNil: [isAtomicButtonTemp off]].! !
+	self flag: #refactor.
+	isAtomic := aBoolean.
+aBoolean ifTrue: [isAtomicButtonTemp := (isAtomicButton submorphs detect: [:m | m isKindOf: ToggleButton] ifNone: [nil]). isAtomicButtonTemp ifNotNil: [isAtomicButtonTemp on]] ifFalse: [isAtomicButtonTemp := (isAtomicButton submorphs detect: [:m | m isKindOf: ToggleButton] ifNone: [nil]). isAtomicButtonTemp ifNotNil: [isAtomicButtonTemp off]].! !

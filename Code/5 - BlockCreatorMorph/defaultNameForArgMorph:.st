@@ -1,7 +1,8 @@
 
-!BlockCreatorMorph methodsFor: 'as yet unclassified' stamp: 'EMP 7/17/2017 10:01'!
+!BlockCreatorMorph methodsFor: 'as yet unclassified' stamp: 'EMP 11/5/2017 22:30'!
 defaultNameForArgMorph: anArgMorph
 	| type others otherLabels newLabel temp |
+	self flag: #refactor.
 	type _ anArgMorph type.
 	others _ (self submorphs select: [:morph | (morph isKindOf: ColoredExpressionArgMorph) and: [morph type = type]]).
 	otherLabels  _ (others collect: [:item | item evaluate third]).

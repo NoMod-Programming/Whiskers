@@ -1,5 +1,5 @@
 
-!ScratchStageMorph methodsFor: 'object i/o' stamp: 'EMP 7/17/2017 17:11'!
+!ScratchStageMorph methodsFor: 'object i/o' stamp: 'EMP 11/3/2017 22:13'!
 readJSON: aDictionary images: images sounds: sounds
 	| listWatchers spritesByName spritesInOrder variableWatchers |
 	super
@@ -12,8 +12,8 @@ readJSON: aDictionary images: images sounds: sounds
 	spritesByName := Dictionary new.
 	spritesInOrder := Dictionary new.
 
-	aDictionary at: 'penLayerID' ifPresent: [:penLayerID |
-	penTrailsForm := images at: penLayerID.
+	aDictionary at: 'penLayerMD5' ifPresent: [:penLayerMD5 |
+	penTrailsForm := images at: penLayerMD5 ifAbsent: [nil]. " 'hack' to not use pen trails on certain nonconforming projects"
 	].
 
 	 (aDictionary at: 'lists' ifAbsent: [#()]) do: [:listDict |

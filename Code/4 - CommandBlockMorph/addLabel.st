@@ -1,5 +1,5 @@
 
-!CommandBlockMorph methodsFor: 'private' stamp: 'EMP 7/16/2017 19:05'!
+!CommandBlockMorph methodsFor: 'private' stamp: 'EMP 11/5/2017 18:50'!
 addLabel
 	"Add a label for my command and arguments. This is the method that really creates the whole block."
 	"Details: We remove all the pieces of this block, and then reassemble them, being careful not to destroy any argument morphs that we might still want to use. This is helpful if someone adds/removes parameters from a hat block."
@@ -42,10 +42,10 @@ addLabel
 
 	self isReporter ifTrue: [
 		m  :=  submorphs first.
-		((m isChoiceArgMorph) | (m isSpriteArgMorph)) ifTrue: [  "add spacer"
+		((m isChoiceArgMorph) | (m isSpriteArgMorph) | (m isVariableArgMorph)) ifTrue: [  "add spacer"
 			self addMorphFront: (Morph new color: Color transparent; extent: 2@5)].
 
 		m  :=  submorphs last.
-		((m isChoiceArgMorph) | (m isSpriteArgMorph)) ifTrue: [  "add spacer"
+		((m isChoiceArgMorph) | (m isSpriteArgMorph) | (m isVariableArgMorph)) ifTrue: [  "add spacer"
 			self addMorphBack: (Morph new color: Color transparent; extent: 2@5)]].
 ! !

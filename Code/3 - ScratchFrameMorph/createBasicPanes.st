@@ -1,9 +1,9 @@
 
-!ScratchFrameMorph methodsFor: 'intialization' stamp: 'EMP 7/14/2017 14:18'!
+!ScratchFrameMorph methodsFor: 'intialization' stamp: 'EMP 11/4/2017 22:06'!
 createBasicPanes
 	"Create and add my palette (viewer), script editor, stage, and library panes."
 
-	topPane := Morph new color: (Color r: 156 g: 158 b: 162 range: 255).
+	topPane := Morph new color: (ScratchFrameMorph topPaneColor).
 	viewerPane := ScratchViewerMorph new.	
 	scriptsPane := ScratchScriptEditorMorph new viewerPane: viewerPane.
 	titlePane := ScratchTitlePaneMorph new.

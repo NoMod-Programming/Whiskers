@@ -572,6 +572,16 @@ Morph subclass: #ScratchLibraryMorph
 	classVariableNames: 'TitleStyle '
 	poolDictionaries: ''
 	category: 'Scratch-UI-Panes'!
+MenuItemMorph subclass: #ScratchMenuItemMorph
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Support'!
+MenuMorph subclass: #ScratchMenuMorph
+	instanceVariableNames: 'font itemHeight '
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Support'!
 Morph subclass: #ScratchPresenterMorph
 	instanceVariableNames: 'frame stage stageWrapper buttons flagButton offscreenWorld mouseFocus mouseDownPoint dragOffset clickWasHandled mouseMoved lastStepTime '
 	classVariableNames: 'TopStyle '
@@ -612,6 +622,16 @@ Morph subclass: #ScratchTitlePaneMorph
 	classVariableNames: 'Style'
 	poolDictionaries: ''
 	category: 'Scratch-UI-Support'!
+Object subclass: #ScratchVariable
+	instanceVariableNames: 'varName varValue'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Objects'!
+Dictionary subclass: #ScratchVariableDictionary
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Objects'!
 Morph subclass: #ScratchViewerMorph
 	instanceVariableNames: 'target pageViewer currentCategory catButtonsExtent categoryButtons topSectionHeight '
 	classVariableNames: 'CatList '
@@ -651,6 +671,25 @@ Object subclass: #SmalltalkImageInstanceID
 	category: 'Cryptography-RandomAndPrime'!
 ArgMorph subclass: #SpriteArgMorph
 	instanceVariableNames: 'menuIconMorph morph type '
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+DialogBoxMorph subclass: #StringDialog
+	instanceVariableNames: 'typeinMorph responseArea '
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Dialogs'!
+ArgMorph subclass: #VariableArgMorph
+	instanceVariableNames: 'menuIconMorph morph type'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
+
+!VariableArgMorph commentStamp: '<historical>' prior: 0!
+I represent a scriptable scratch morph argument for a command block.  Clicking on me and then another point on the screen allows the user to set my value to the scriptable scratch morph that has been clicked on.!
+
+ReporterBlockMorph subclass: #VariableBlockMorph
+	instanceVariableNames: 'varReference '
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Scratch-Blocks'!

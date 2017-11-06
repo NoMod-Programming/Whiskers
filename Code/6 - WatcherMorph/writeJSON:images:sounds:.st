@@ -1,11 +1,11 @@
 
-!WatcherMorph methodsFor: 'accessing' stamp: 'EMP 7/17/2017 23:34'!
+!WatcherMorph methodsFor: 'accessing' stamp: 'EMP 11/5/2017 19:39'!
 writeJSON: aDictionary images: images sounds: sounds
 	| hasSlider stage |
 	aDictionary at: 'target' put: (readout target objName).
 	aDictionary at: 'cmd' put: (readout getSelector).
-	aDictionary at: 'param' put: (readout parameter).
-	aDictionary at: 'color' put: ('TODO COLOR').
+	aDictionary at: 'param' put: (readout parameter isScratchVariable ifTrue: [readout parameter varName] ifFalse: [readout parameter]).
+	aDictionary at: 'color' put: (Number readFrom: readoutFrame color printHtmlString base: 16).
 	aDictionary at: 'label' put: titleMorph contents.
 	hasSlider := self isVariableWatcher and: [scratchSlider notNil].
 	aDictionary at: 'mode' put: 1.

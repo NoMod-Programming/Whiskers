@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/18/2017 16:21'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 11/5/2017 20:55'!
 blockFromTuple: tuple receiver: scriptOwner
 	"Answer a new block for the given tuple."
 
@@ -29,6 +29,16 @@ blockFromTuple: tuple receiver: scriptOwner
 		tuple size > 3 ifTrue: [block width: (tuple at: 4)].
 		tuple size > 4 ifTrue: [block anchor: (self blockWithID: (tuple at: 5))].
 		^ block].
+
+	#scratch2Comment = k ifTrue: [
+		block := ScratchCommentMorph new.
+		(tuple at: 4) ifFalse: [block toggleShowing].
+		(tuple at: 5) >= 0 ifTrue: [block anchor: (self blockWithID: (tuple at: 5))].
+		block commentMorph contents: (tuple at: 6).
+		block width: (tuple at: 2).
+		block height: (tuple at: 3).
+		^ block
+	].
 
 	#comment: = k ifTrue: [
 		block := CommentBlockMorph new.

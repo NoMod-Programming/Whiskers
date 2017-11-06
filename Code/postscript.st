@@ -1,5 +1,7 @@
+ArgMorph removeSelector: #borderColor!
 BackdropEventHatMorph removeSelector: #isKeyEventHatMorph!
 BackdropEventHatMorph removeSelector: #respondsToKeyEvent:!
+BlockCreatorMorph removeSelector: #ddParameter:!
 CommandBlockMorph removeSelector: #addCommandIcons!
 BlockMorph subclass: #CommandBlockMorph
 	instanceVariableNames: 'commandSpec argPermutation argMorphs titleMorph receiver selector isReporter isTimed wantsName wantsPossession numberArgFlags stopFrame'
@@ -17,6 +19,8 @@ ScratchMedia subclass: #ImageMedia
 Json initialize!
 LibraryItemMorph removeSelector: #drawSubmorphsOn:!
 MD5NonPrimitive initialize!
+NewVariableDialog removeSelector: #message:details:font:!
+ProcCallBlockMorph removeSelector: #sBlockTuple!
 RandomGenerator initialize!
 SHA1 initialize!
 SampledSound removeSelector: #originalSamplingRate:!
@@ -45,6 +49,16 @@ Morph subclass: #ScratchLibraryMorph
 	category: 'Scratch-UI-Panes'!
 ScratchLibraryMorph initialize!
 ScratchListMorph removeSelector: #asJSON!
+ScratchMenuMorph removeSelector: #mouseDown:!
+ScratchMenuMorph removeSelector: #mouseDownPriority!
+ScratchMenuMorph removeSelector: #mouseUp:!
+ScratchMenuMorph removeSelector: #popUpAt:forHand:in:!
+ScratchMenuMorph removeSelector: #useSoftDropShadow!
+MenuMorph subclass: #ScratchMenuMorph
+	instanceVariableNames: 'font itemHeight'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Support'!
 Morph subclass: #ScratchPresenterMorph
 	instanceVariableNames: 'frame stage stageWrapper buttons flagButton offscreenWorld mouseFocus mouseDownPoint dragOffset clickWasHandled mouseMoved lastStepTime'
 	classVariableNames: 'TopStyle'
@@ -100,6 +114,10 @@ ImageMorph subclass: #ScratchThumbnailMorph
 	poolDictionaries: ''
 	category: 'Scratch-UI-Support'!
 ScratchTitlePaneMorph initialize!
+ScratchVariable removeSelector: #name!
+ScratchVariable removeSelector: #name:!
+ScratchVariable removeSelector: #value!
+ScratchVariable removeSelector: #value:!
 ScratchViewerMorph removeSelector: #drawBackgroundOn:!
 ScratchViewerMorph removeSelector: #rebuildCategorySelectors!
 Morph subclass: #ScratchViewerMorph
@@ -145,7 +163,21 @@ String removeSelector: #formatASN1!
 String removeSelector: #formatASN1TabLevel:!
 String removeSelector: #padLeftTo:with:!
 String removeSelector: #tokensBasedOn:!
+DialogBoxMorph subclass: #StringDialog
+	instanceVariableNames: 'typeinMorph responseArea'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-UI-Dialogs'!
+VariableArgMorph removeSelector: #checkForDeletedMorph!
+VariableArgMorph removeSelector: #clearMorphReference!
+VariableArgMorph removeSelector: #isSpriteArgMorph!
+ReporterBlockMorph subclass: #VariableBlockMorph
+	instanceVariableNames: 'varReference'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Scratch-Blocks'!
 WhenClonedEventHatMorph removeSelector: #isMouseClickEventHatMorph!
 WhenClonedEventHatMorph removeSelector: #receiverName!
 WhenGreaterThanHatBlockMorph removeSelector: #eventNameMatches:!
 WhenGreaterThanHatBlockMorph removeSelector: #triggered!
+Smalltalk removeClassNamed: #ShadowedStringMorph!

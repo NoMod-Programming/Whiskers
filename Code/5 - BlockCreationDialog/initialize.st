@@ -1,27 +1,27 @@
 
-!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 7/17/2017 11:50'!
+!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 11/5/2017 22:27'!
 initialize
 	| toggleButton labelText maxStringLength buttons label offForm onForm b final |
 
 	"Dear people wishing to look at my code... I know that this is repetitive. I should fix it, but right now I am feeling too lazy to do so. So... you can fix it if you like"
 
 	super initialize.
-	block _ BlockCreatorMorph new commandSpec: '	'.
-	blockColumn _ AlignmentMorph new color: Color transparent; addMorph: block.
+	block := BlockCreatorMorph new commandSpec: '	'.
+	blockColumn := AlignmentMorph new color: Color transparent; addMorph: block.
 	self title: 'New Block'.
-	isAtomic _ false.
-	showingBin _ true.
-	blockParts _ OrderedCollection new.
-	showHideButton _ AlignmentMorph new color: Color transparent.
-	isAtomicButton _ AlignmentMorph new color: Color transparent.
-	toggleButton _ ((ToggleButton
+	isAtomic := false.
+	showingBin := true.
+	blockParts := OrderedCollection new.
+	showHideButton := AlignmentMorph new color: Color transparent.
+	isAtomicButton := AlignmentMorph new color: Color transparent.
+	toggleButton := ((ToggleButton
 		onForm: (ScratchFrameMorph skinAt: #watcherButtonPressed)
 		offForm: (ScratchFrameMorph skinAt: #watcherButton)) alphaOn: false).
 	toggleButton target: self;
 		actionSelector: #toggleAtomic;
 		borderWidth: 0;
 		setProperty: #balloonText toValue: 'Allows a block to run without making changes to the screen until it is done' localized.
-	labelText _ StringMorph new contents: '  Run without screen refresh'; font: (ScratchFrameMorph getFont: #DialogBoxMessage).
+	labelText := StringMorph new contents: '  Run without screen refresh'; font: (ScratchFrameMorph getFont: #DialogBoxMessage).
 	isAtomicButton addMorphBack: toggleButton; addMorphBack: (labelText position: (toggleButton topRight + (10@0))).
 	showHideButton addMorphBack: ((toggleButton copy) onForm: (ScratchFrameMorph skinAt: #arrowOpenComment) offForm: (ScratchFrameMorph skinAt: #arrowClosedComment); actionSelector: #toggleBin; setProperty: #balloonText toValue: 'Show or hide additional options for this block'); addMorphBack: (StringMorph new contents: ' options'; font: (ScratchFrameMorph getFont: #DialogBoxMessage)).
 

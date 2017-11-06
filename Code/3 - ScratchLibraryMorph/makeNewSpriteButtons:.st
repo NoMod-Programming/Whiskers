@@ -1,5 +1,5 @@
 
-!ScratchLibraryMorph methodsFor: 'initialization' stamp: 'EMP 7/16/2017 21:40'!
+!ScratchLibraryMorph methodsFor: 'initialization' stamp: 'EMP 11/4/2017 22:15'!
 makeNewSpriteButtons: aScratchFrameMorph
 	"Return a morph containing a set of new sprite buttons."
 
@@ -25,7 +25,7 @@ makeNewSpriteButtons: aScratchFrameMorph
 		button].
 
 	butonExtent := ScratchFrameMorph isXO ifTrue: [37@27] ifFalse: [30@20].
-	label := ((StringMorph contents: 'New Sprite:' font: (ScratchFrameMorph getFont: #Tab)) color: (Color r: 92 g: 93 b: 95 range: 255); yourself).
+	label := ((StringMorph contents: 'New Sprite:' font: (ScratchFrameMorph getFont: #Tab)) color: (ScratchFrameMorph textColor); yourself).
 	panel addMorph: (label position: 0@6).
 
 	x := label width + 5.

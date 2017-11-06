@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/13/2017 18:44'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 11/5/2017 18:55'!
 addGenericVariableBlocksTo: page x: x y: startY
 	"Add the generic variable blocks to the given page starting at the given y offset. Answer the new y."
 
@@ -11,10 +11,10 @@ addGenericVariableBlocksTo: page x: x y: startY
 	stage := self ownerOrYourselfThatIsA: ScratchStageMorph.
 	(stage notNil and: [stage hasVariables])
 		ifTrue: [
-			vName := stage varNames first]
+			vName := stage vars anyOne]
 		ifFalse: [
 			self hasVariables ifFalse: [^ y].
-			vName := self varNames first].
+			vName := self vars anyOne].
 
 	varBlocks := OrderedCollection new.
 	block := SetterBlockMorph new
@@ -29,8 +29,8 @@ addGenericVariableBlocksTo: page x: x y: startY
 	block expressionArg numExpression: '1'.
 	varBlocks add: block.
 
-	(self blocksFor: 'Variables') do: [:b |
-		b defaultArgs: (Array with: vName).
+	(self blocksFor: 'Data') do: [:b |
+		b defaultArgs: (Array with: vName varName).
 		varBlocks add: b].
 
 	varBlocks do: [:b |

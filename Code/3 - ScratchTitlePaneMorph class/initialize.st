@@ -1,7 +1,7 @@
 
-!ScratchTitlePaneMorph class methodsFor: 'as yet unclassified' stamp: 'EMP 7/14/2017 12:15'!
+!ScratchTitlePaneMorph class methodsFor: 'as yet unclassified' stamp: 'EMP 11/4/2017 22:20'!
 initialize
 	Style := GradientFillStyle ramp: {
 		0.0 -> Color white.
-		0.9 -> (Color r: 230 g: 232 b: 232 range: 255). "Eh good enough"
+		0.9 -> ScratchFrameMorph palettePaneColor. "Eh good enough"
 	}! !

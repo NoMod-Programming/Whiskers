@@ -1,5 +1,5 @@
 
-!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 7/17/2017 11:44'!
+!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 11/5/2017 22:27'!
 getUserResponse
 	| result w |
 	"Wait for the user to respond, then report their response. The symbol #cancel is returned if the user wishes to cancel the operation. True/false is returned if they respond yes/no, and a string is returned if this this a string input dialog and they don't cancel."
@@ -7,16 +7,16 @@ getUserResponse
 
 	self openInWorld.
 	self centerOnScreen.
-	w _ self world.
+	w := self world.
 	self buttons size > 0 ifTrue: [
 		w activeHand newKeyboardFocus: self buttons last].
 	tabFields size > 0 ifTrue: [
 		w activeHand newKeyboardFocus: (tabFields at: 1)].
-	done _ false.
+	done := false.
 	World hands first newKeyboardFocus: (block blockLabels first labelMorph).
 	[done] whileFalse: [w doOneCycle].  "wait for user to press a button"
 
-	result _ response.
+	result := response.
 
 	(result = #cancelled) | (result = '') ifTrue: [^ false].
 ^ {block getBlockName. isAtomic}! !

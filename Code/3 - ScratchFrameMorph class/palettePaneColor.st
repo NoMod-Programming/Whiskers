@@ -1,5 +1,5 @@
 
-!ScratchFrameMorph class methodsFor: 'utilities' stamp: 'EMP 7/13/2017 16:04'!
+!ScratchFrameMorph class methodsFor: 'colors' stamp: 'EMP 11/4/2017 22:20'!
 palettePaneColor
 
 	| c |

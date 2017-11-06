@@ -1,11 +1,11 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/17/2017 14:32'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 11/4/2017 22:28'!
 viewerPageForMore
 	"Answer a morph containing my custom blocks."
 
 	| page addButton x y |
 	page := ScratchBlockPaletteMorph new
-		color: (Color r: 0.8 g: 0.8 b: 1.0);
+		color: ScratchFrameMorph palettePaneColor;
 		borderWidth: 0.
 
 	addButton := ScratchFrameMorph

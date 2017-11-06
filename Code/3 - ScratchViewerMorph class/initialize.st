@@ -1,5 +1,5 @@
 
-!ScratchViewerMorph class methodsFor: 'class initialization' stamp: 'EMP 7/18/2017 16:15'!
+!ScratchViewerMorph class methodsFor: 'class initialization' stamp: 'EMP 11/3/2017 22:52'!
 initialize
 	"self initialize"
 

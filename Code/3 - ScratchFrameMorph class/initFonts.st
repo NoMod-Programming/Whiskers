@@ -1,5 +1,5 @@
 
-!ScratchFrameMorph class methodsFor: 'scratch skin' stamp: 'EMP 7/13/2017 11:12'!
+!ScratchFrameMorph class methodsFor: 'scratch skin' stamp: 'EMP 11/5/2017 17:28'!
 initFonts
 	"self initFonts"
 
@@ -34,9 +34,9 @@ initFonts
 		(MediaItemInfo				Verdana		9	Arial			14)
 
 		"Dialog Boxes"
-		(DialogBoxTitle				VerdanaBold		14	VerdanaBold		16)
-		(DialogBoxMessage			VerdanaBold		13	VerdanaBold		16)
-		(DialogBoxButton			VerdanaBold		11	VerdanaBold		16)
+		(DialogBoxTitle				Verdana		12	VerdanaBold		16)
+		(DialogBoxMessage			Verdana		12	VerdanaBold		16)
+		(DialogBoxButton			Verdana		11	VerdanaBold		16)
 		(ProjectNotes				Verdana		10	Verdana		12)
 		(LinkMorphDefault			VerdanaBold		10	VerdanaBold		12)
 		(ShareLink					VerdanaBold		13	VerdanaBold		12)

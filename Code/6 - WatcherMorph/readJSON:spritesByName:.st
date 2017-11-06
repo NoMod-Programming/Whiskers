@@ -1,12 +1,13 @@
 
-!WatcherMorph methodsFor: 'accessing' stamp: 'EMP 7/16/2017 14:23'!
+!WatcherMorph methodsFor: 'accessing' stamp: 'EMP 11/5/2017 20:16'!
 readJSON: aDictionary spritesByName: spritesByName
-	| sliderRange |
+	| sliderRange target |
+	target := spritesByName
+				at: (aDictionary at: 'target').
 	self
-		target: (spritesByName
-				at: (aDictionary at: 'target'))
+		target: target
 		selector: (aDictionary at: 'cmd')
-		parameter: (aDictionary at: 'param');
+		parameter: (target getVarReference: (aDictionary at: 'param'));
 		
 		setCategoryColor: (Color fromString: '#'
 					, ((aDictionary at: 'color')

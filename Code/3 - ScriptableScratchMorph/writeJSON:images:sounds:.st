@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'object i/o' stamp: 'EMP 7/17/2017 23:35'!
+!ScriptableScratchMorph methodsFor: 'object i/o' stamp: 'EMP 11/3/2017 22:37'!
 writeJSON: aDictionary images: images sounds: sounds
 	| varDict listDict soundDict imagesDict allObjects stage |
 	stage :=  self ownerOrYourselfThatIsA: ScratchStageMorph.
@@ -33,7 +33,7 @@ writeJSON: aDictionary images: images sounds: sounds
 			soundDict add: (Dictionary newFrom: {
 				'soundName' -> el mediaName.
 				'soundID' -> (sounds size).
-				'md5' -> -1.
+				'md5' -> el md5.
 				'sampleCount' -> el sound samples size.
 				'rate' -> el sound samplingRate.
 				'format' -> 'adpcm'.
@@ -43,7 +43,7 @@ writeJSON: aDictionary images: images sounds: sounds
 			imagesDict add: (Dictionary newFrom: {
 				'costumeName' -> el mediaName.
 				'baseLayerID' -> (images size).
-				'baseLayerMD5' -> -1.
+				'baseLayerMD5' -> el md5.
 				'bitmapResolution' -> 1.
 				'rotationCenterX' -> el rotationCenter x.
 				'rotationCenterY' -> el rotationCenter y.

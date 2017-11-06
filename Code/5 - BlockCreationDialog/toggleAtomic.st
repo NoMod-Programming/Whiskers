@@ -1,4 +1,4 @@
 
-!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 7/17/2017 11:45'!
+!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 11/5/2017 22:28'!
 toggleAtomic
-isAtomic _ isAtomic not! !
+	isAtomic := isAtomic not! !

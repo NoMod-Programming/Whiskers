@@ -1,5 +1,5 @@
 
-!LibraryItemMorph methodsFor: 'initialization' stamp: 'EMP 7/14/2017 09:09'!
+!LibraryItemMorph methodsFor: 'initialization' stamp: 'EMP 11/3/2017 20:40'!
 extent: aRectangle thumbWidth: w
 
 	lastUpdateMSecs := -1.
@@ -10,6 +10,5 @@ extent: aRectangle thumbWidth: w
 	self target: nil.
 	isSelected := nil.
 	rolloverOn := false.
-	currentForm := nil.
 	self highlight: false.
 ! !

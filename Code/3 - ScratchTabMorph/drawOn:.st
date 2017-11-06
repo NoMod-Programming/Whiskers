@@ -1,13 +1,13 @@
 
-!ScratchTabMorph methodsFor: 'drawing' stamp: 'EMP 7/14/2017 16:24'!
+!ScratchTabMorph methodsFor: 'drawing' stamp: 'EMP 11/4/2017 22:17'!
 drawOn: aCanvas
 	| style textColor |
 	selected ifTrue: [
 		style := SelectedStyle.
-		textColor := Color r: 92 g: 93 b: 95 range: 255.
+		textColor := ScratchFrameMorph textColor.
 	] ifFalse: [
 		style := NormalStyle.
-		textColor := Color r: 143 g: 145 b: 147 range: 255.
+		textColor := ScratchFrameMorph offColor.
 	].
 	style origin: self topLeft.
 	style direction: 0@(bounds height + 8).

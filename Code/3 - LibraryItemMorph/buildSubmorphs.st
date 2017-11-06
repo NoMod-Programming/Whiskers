@@ -1,5 +1,5 @@
 
-!LibraryItemMorph methodsFor: 'initialization' stamp: 'EMP 7/14/2017 09:12'!
+!LibraryItemMorph methodsFor: 'initialization' stamp: 'EMP 11/4/2017 22:24'!
 buildSubmorphs
 	"LibraryItemMorph open"
 
@@ -11,7 +11,7 @@ buildSubmorphs
 	nameMorph := StringMorph new
 		font: (ScratchFrameMorph getFont: #LibraryItemName);
 		position: 0 @ (thumbnailMorph bottom -3);
-		color: (Color r: 92 g: 93 b: 95 range: 255);
+		color: ScratchFrameMorph textColor;
 		lock.
 	self addMorph: nameMorph.
 

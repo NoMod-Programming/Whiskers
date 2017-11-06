@@ -1,5 +1,5 @@
 
-!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 7/16/2017 13:18'!
+!ScriptableScratchMorph methodsFor: 'blocks' stamp: 'EMP 11/5/2017 18:59'!
 variableBlockFromTuple: tuple receiver: scriptOwner
 	"Answer a new block for the given variable reference tuple."
 
@@ -17,7 +17,8 @@ variableBlockFromTuple: tuple receiver: scriptOwner
 	tuple first = #readVariable ifTrue: [
 		^ VariableBlockMorph new
 			commandSpec: varName;
-			receiver: rcvr].
+			receiver: rcvr;
+			variable: varName].
 
 	tuple first = #changeVariable ifTrue: [
 		selector := tuple at: 3.
@@ -25,8 +26,8 @@ variableBlockFromTuple: tuple receiver: scriptOwner
 		(selector = #set:to:) ifTrue: [selector := #setVar:to:].
 		block := SetterBlockMorph new receiver: rcvr.
 		selector = #setVar:to:
-			ifTrue: [block initSetterForVar: varName]
-			ifFalse: [block initChangerForVar: varName].
+			ifTrue: [block initSetterForVar: (rcvr getVarReference: varName)]
+			ifFalse: [block initChangerForVar: (rcvr getVarReference: varName)].
 
 		arg := tuple at: 4.
 		(arg isArray)

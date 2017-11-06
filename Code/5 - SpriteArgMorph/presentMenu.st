@@ -1,5 +1,5 @@
 
-!SpriteArgMorph methodsFor: 'event handling' stamp: 'EMP 7/16/2017 18:58'!
+!SpriteArgMorph methodsFor: 'event handling' stamp: 'EMP 11/5/2017 16:16'!
 presentMenu
 	"Let the user select a Scratch object or the special value #mouse."
 
@@ -11,7 +11,7 @@ presentMenu
 	objList := frame scratchObjects.
 	objList sort: [:obj1 :obj2 | obj1 objName asLowercase < obj2 objName asLowercase].
 
-	menu := ScratchMenuMorph new.
+	menu := ScratchMenuMorph new itemHeight: 22; color: color..
 
 	(type = #spriteOrStage) ifTrue: [
 		menu add: 'Stage' localized target: self selector: #setArgFromMenuChoice: argument: frame workPane.

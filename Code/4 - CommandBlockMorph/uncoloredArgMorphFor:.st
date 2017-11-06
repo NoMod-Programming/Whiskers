@@ -1,5 +1,5 @@
 
-!CommandBlockMorph methodsFor: 'private' stamp: 'EMP 7/16/2017 18:00'!
+!CommandBlockMorph methodsFor: 'private' stamp: 'EMP 11/5/2017 18:16'!
 uncoloredArgMorphFor: specString
 	"Answer an argument morph for the given argument specification string."
 	| code |
@@ -32,7 +32,7 @@ uncoloredArgMorphFor: specString
 	'd.note' = code ifTrue: [^ ExpressionArgMorphWithMenu new numExpression: '60'; menuSelector: #noteSelector].
 	's' = code ifTrue: [^ ExpressionArgMorph new stringExpression: ''].
 	'm.sound' = code ifTrue: [^ ChoiceOrExpressionArgMorph new getOptionsSelector: #soundNames; choice: 'pop'].
-	'm.var' = code ifTrue: [^ ChoiceArgMorph new getOptionsSelector: #varNamesMenu; choice: ''].
+	'm.var' = code ifTrue: [^ VariableArgMorph new].
 	'm.backdrop' = code ifTrue: [^ ChoiceOrExpressionArgMorph new getOptionsSelector: #backdropNames; choice: 'backdrop1'].
 	'm.motorDirection' = code ifTrue: [^ ChoiceArgMorph new getOptionsSelector: #motorDirection].
 	'd.listDeleteItem' = code ifTrue: [^ ExpressionArgMorphWithMenu new numExpression: '1'; menuSelector: #listIndexForDeleteMenu].

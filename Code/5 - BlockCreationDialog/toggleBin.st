@@ -1,5 +1,5 @@
 
-!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 7/18/2017 11:16'!
+!BlockCreationDialog methodsFor: 'as yet unclassified' stamp: 'EMP 11/5/2017 22:28'!
 toggleBin
 	showingBin ifTrue: [
 	mainColumn submorphsDo: [:m | 
@@ -22,7 +22,7 @@ toggleBin
 		addMorphBack: bin;
 		addMorphBack: (Morph new extent: (216@7); color: Color transparent);
 		addMorphBack: buttonRow].
-	showingBin _ showingBin not.
+	showingBin := showingBin not.
 	showingBin ifFalse: [
 	World doOneCycleNoInput].
 	self extent: ((block width + 60 max: 385) @ (showingBin ifTrue: [mainColumn height + bin height + buttonRow height] ifFalse: [bin height + buttonRow height])).! !
