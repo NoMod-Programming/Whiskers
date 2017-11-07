@@ -8,7 +8,7 @@ echo "[Desktop Entry]
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Exec=nuwhiskers
+Exec=whiskers
 Icon=scratch
 Terminal=false
 Name=Whiskers
