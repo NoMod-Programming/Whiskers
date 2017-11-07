@@ -13,5 +13,5 @@ Terminal=false
 Name=Whiskers
 Comment=Programming system and content development tool
 Categories=APplication;Education;Development;
-lMimeType=application/x-scratch-project" > /home/${USER}/Desktop/whiskers.desktop
-chmod a+x /home/$(logname)/Desktop/whiskers.desktop
+MimeType=application/x-scratch-project" > /home/${USER}/Desktop/whiskers.desktop
+chmod a+x /home/${USER}/Desktop/whiskers.desktop
